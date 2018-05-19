@@ -1,0 +1,14 @@
+@model CoolCaptions.Models.Media
+ 
+@{
+     ViewData["Title"] = "Reproducir"; 
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <video controls></video>
+    <div>
+        @Model.Title
+    </div>
+</div>

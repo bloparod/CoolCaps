@@ -6,34 +6,69 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CoolCaptions.Models;
 using CoolCaptions.Controllers.Common;
+using CoolCaptions.Services;
 
 namespace CoolCaptions.Controllers
 {
     public class MediaController : BaseController
     {
-        public IActionResult Index()
+        private readonly MediaService mediaService;
+
+        public MediaController()
         {
-            return View();
+            this.mediaService = new MediaService();
+        }
+
+        public IActionResult Explore()
+        {
+            this.SetTitle("Explorar");
+
+            var medias = this.mediaService.GetAll();
+
+            return View("MediaList", medias);
         }
 
         public IActionResult New()
         {
-            return View();
+            this.SetTitle("Nuevos");
+
+            var medias = this.mediaService.GetNew();
+
+            return View("MediaList", medias);
         }
 
         public IActionResult MostViewed()
         {
-            return View();
+            this.SetTitle("Más vistos");
+
+            var medias = this.mediaService.GetMostViewed();
+
+            return View("MediaList", medias);
         }
 
         public IActionResult Trending()
         {
-            return View();
+            this.SetTitle("Tendencias");
+
+            var medias = this.mediaService.GetTrending();
+
+            return View("MediaList", medias);
         }
 
         public IActionResult Random()
         {
-            return View();
+            this.SetTitle("Random");
+
+            var medias = this.mediaService.GetRandom();
+
+            return View("MediaList", medias);
+        }
+
+        public IActionResult Play(int id)
+        {
+            var media = this.mediaService.Get(id);
+
+            return View(media);
         }
     }
 }

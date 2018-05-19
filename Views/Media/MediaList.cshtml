@@ -1,0 +1,22 @@
+@model IEnumerable<CoolCaptions.Models.Media>
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="media-list">
+    @foreach(var media in Model)
+    {
+    <div class="media">
+        <div>
+            <a href='@string.Format("Play/{0}", media.Id)'>
+                <img src='@string.Format("/images/{0}.jpg", media.Type)' class="media-thumbnail">
+            </a>
+        </div>
+        <div class="media-footer">
+            <div>@media.Title</div>
+            <div>
+                <span>@media.DifficultyLevel.Name</span> / <span>@string.Format("{0} palabras", media.WordsQty)</span>
+            </div>
+        </div>
+    </div>
+    }
+</div>
