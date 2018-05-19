@@ -5,10 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CoolCaptions.Models;
+using CoolCaptions.Controllers.Common;
 
 namespace CoolCaptions.Controllers
 {
-    public class YourMediaController : Controller
+    public class YourMediaController : BaseController
     {
         public IActionResult Index()
         {
