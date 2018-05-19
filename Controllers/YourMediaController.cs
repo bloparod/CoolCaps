@@ -8,29 +8,19 @@ using CoolCaptions.Models;
 
 namespace CoolCaptions.Controllers
 {
-    public class MediaController : Controller
+    public class YourMediaController : Controller
     {
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult New()
+        public IActionResult Playlists()
         {
             return View();
         }
 
-        public IActionResult MostViewed()
-        {
-            return View();
-        }
-
-        public IActionResult Trending()
-        {
-            return View();
-        }
-
-        public IActionResult Random()
+        public IActionResult Favorites()
         {
             return View();
         }
