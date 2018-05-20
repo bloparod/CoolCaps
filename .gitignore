@@ -1,0 +1,15 @@
+bin/Debug/netcoreapp2.0/CoolCaptions.pdb
+bin/Debug/netcoreapp2.0/CoolCaptions.dll
+bin/Debug/netcoreapp2.0/CoolCaptions.deps.json
+bin/Debug/netcoreapp2.0/CoolCaptions.runtimeconfig.json
+bin/Debug/netcoreapp2.0/CoolCaptions.runtimeconfig.dev.json
+obj/CoolCaptions.csproj.nuget.cache
+obj/CoolCaptions.csproj.nuget.g.props
+obj/CoolCaptions.csproj.nuget.g.targets
+obj/project.assets.json
+obj/Debug/netcoreapp2.0/CoolCaptions.dll
+obj/Debug/netcoreapp2.0/CoolCaptions.pdb
+obj/Debug/netcoreapp2.0/CoolCaptions.AssemblyInfo.cs
+obj/Debug/netcoreapp2.0/CoolCaptions.AssemblyInfoInputs.cache
+obj/Debug/netcoreapp2.0/CoolCaptions.csproj.CoreCompileInputs.cache
+obj/Debug/netcoreapp2.0/CoolCaptions.csproj.FileListAbsolute.txt
