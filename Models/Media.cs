@@ -16,5 +16,9 @@ namespace CoolCaptions.Models
         public int WordsQty { get; set; }
 
         public string Type { get; set; }
+
+        public string FileName { get; set; }
+
+        public string MimeType { get; set; }
     }
 }

@@ -9,7 +9,7 @@ namespace CoolCaptions.Services
     {
         private const int MediaQty = 17;
         private readonly DifficultyLevelService difficultyLevelService;
-        private IList<Media> allMedia;
+        private IList<Media> all;
 
         public MediaService()
         {
@@ -20,24 +20,24 @@ namespace CoolCaptions.Services
 
         public Media Get(int mediaId)
         {
-            return this.allMedia.SingleOrDefault(x => x.Id == mediaId);
+            return this.all.SingleOrDefault(x => x.Id == mediaId);
         }
 
         public IEnumerable<Media> GetAll()
         {
-            return this.allMedia.ToList();
+            return this.all.ToList();
         }
 
         public IEnumerable<Media> GetNew()
         {
-            return this.allMedia
-                .OrderBy(x => x.CreatedOn)
+            return this.all
+                .OrderByDescending(x => x.CreatedOn)
                 .ToList();
         }
 
         public IEnumerable<Media> GetMostViewed()
         {
-            return this.allMedia
+            return this.all
                 .OrderBy(x => x.ViewsQty)
                 .ToList();
         }
@@ -49,7 +49,7 @@ namespace CoolCaptions.Services
 
         public IEnumerable<Media> GetRandom()
         {
-            return this.allMedia
+            return this.all
                 .Select(x => new
                 {
                     Random = Guid.NewGuid(),
@@ -62,7 +62,7 @@ namespace CoolCaptions.Services
 
         private void SetAllMedia()
         {
-            this.allMedia = new List<Media>();
+            this.all = new List<Media>();
 
             for (var i = 1; i <= MediaQty; i++)
             {
@@ -76,10 +76,13 @@ namespace CoolCaptions.Services
                     ViewsQty = i,
                     DifficultyLevel = difficultyLevel,
                     WordsQty = i + difficultyLevel.Name.Length + 100,
-                    Type = type
+                    Type = type,
+                    FileName = type == "video" ? "video.mp4" : "audio.mp3",
+                    MimeType = type == "video" ? "video/mp4" : "audio/mp3",
+                    CreatedOn = DateTime.Now
                 };
 
-                this.allMedia.Add(media);
+                this.all.Add(media);
             };
         }
     }

@@ -42,3 +42,7 @@
   width: 200px;
   height: 160px;
 }
+
+.media .media-title {
+  font-weight: bold;
+}

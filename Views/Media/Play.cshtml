@@ -7,8 +7,25 @@
 <h1>@ViewData["Title"]</h1>
 
 <div>
-    <video controls></video>
+    <h1 data-bind="text: content.Name"></h1>
+
     <div>
-        @Model.Title
+        Modo:
+        <select>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+        </select>
+    </div>
+
+    <div>
+        <video height="350px" width="500px" controls>
+            <source src='@string.Format("/medias/{0}", @Model.FileName)' type="@Model.MimeType">
+        </video>
+        <content-subtitles-widget params="currentSubtitle: currentSubtitle, selectedMode: selectedMode"></content-subtitles-widget>
+
+        <!-- <i class="fa" data-bind="click:playPause, css: { 'fa-pause-circle': isPlaying(), 'fa-play-circle': isPaused() }" style="font-size:48px;color:red"></i> -->
+
+        <!-- <input type="range" min="0" max="100" value="0" data-bind="value: volume, event: { change: changeVolume }" /> -->
     </div>
 </div>
