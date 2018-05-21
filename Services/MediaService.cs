@@ -78,7 +78,7 @@ namespace CoolCaptions.Services
                     WordsQty = i + difficultyLevel.Name.Length + 100,
                     Type = type,
                     FileName = type == "video" ? "video.mp4" : "audio.mp3",
-                    MimeType = type == "video" ? "video/mp4" : "audio/mp3",
+                    MimeType = type == "video" ? "video/mp4" : "audio/mpeg",
                     CreatedOn = DateTime.Now
                 };
 

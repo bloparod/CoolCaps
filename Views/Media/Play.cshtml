@@ -18,14 +18,20 @@
         </select>
     </div>
 
-    <div>
-        <video height="350px" width="500px" controls>
-            <source src='@string.Format("/medias/{0}", @Model.FileName)' type="@Model.MimeType">
-        </video>
-        <content-subtitles-widget params="currentSubtitle: currentSubtitle, selectedMode: selectedMode"></content-subtitles-widget>
-
-        <!-- <i class="fa" data-bind="click:playPause, css: { 'fa-pause-circle': isPlaying(), 'fa-play-circle': isPaused() }" style="font-size:48px;color:red"></i> -->
-
-        <!-- <input type="range" min="0" max="100" value="0" data-bind="value: volume, event: { change: changeVolume }" /> -->
-    </div>
+    @if (Model.Type == "video")
+    {
+        <div class="video-player">
+            <video height="350px" width="500px" controls>
+                <source src='@string.Format("/medias/{0}", @Model.FileName)' type="@Model.MimeType" />
+            </video>
+        </div>
+    }
+    else
+    {
+        <div class="audio-player">
+            <audio controls>
+                <source src='@string.Format("/medias/{0}", @Model.FileName)' type="@Model.MimeType" />
+            </audio>
+        </div>
+    }
 </div>
