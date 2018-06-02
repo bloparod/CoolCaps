@@ -11,7 +11,7 @@ namespace CoolCaptions.Models
 
         public int ViewsQty { get; set; }
 
-        public DifficultyLevel DifficultyLevel { get; set; }
+        public virtual DifficultyLevel DifficultyLevel { get; set; }
 
         public int WordsQty { get; set; }
 

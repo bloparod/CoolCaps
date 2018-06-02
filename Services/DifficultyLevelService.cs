@@ -1,53 +1,28 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CoolCaptions.DataAccess;
 using CoolCaptions.Models;
 
 namespace CoolCaptions.Services
 {
     public class DifficultyLevelService
     {
-        private IList<DifficultyLevel> all;
+        private readonly CoolCaptionsDatabase database;
 
-        public DifficultyLevelService()
+        public DifficultyLevelService(CoolCaptionsDatabase database)
         {
-            this.SetAllDifficultyLevels();
+            this.database = database;
         }
 
         public DifficultyLevel Get(int difficultyLevelId)
         {
-            return this.all.SingleOrDefault(x => x.Id == difficultyLevelId);
+            return this.database.DifficultyLevel.SingleOrDefault(x => x.Id == difficultyLevelId);
         }
 
         public IEnumerable<DifficultyLevel> GetAll()
         {
-            return this.all.ToList();
-        }
-
-        private void SetAllDifficultyLevels()
-        {
-            this.all = new List<DifficultyLevel>();
-
-            this.all.Add(new DifficultyLevel
-            {
-                Id = 1,
-                Name = "Fácil",
-                Order = 1
-            });
-
-            this.all.Add(new DifficultyLevel
-            {
-                Id = 2,
-                Name = "Intermedio",
-                Order = 2
-            });
-
-            this.all.Add(new DifficultyLevel
-            {
-                Id = 3,
-                Name = "Avanzado",
-                Order = 3
-            });
+            return this.database.DifficultyLevel.ToList();
         }
     }
 }

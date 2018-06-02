@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using CoolCaptions.Models;
 using CoolCaptions.Controllers.Common;
+using CoolCaptions.Models;
 using CoolCaptions.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CoolCaptions.Controllers
 {
@@ -14,9 +14,9 @@ namespace CoolCaptions.Controllers
     {
         private readonly MediaService mediaService;
 
-        public MediaController()
+        public MediaController(MediaService mediaService)
         {
-            this.mediaService = new MediaService();
+            this.mediaService = mediaService;
         }
 
         public IActionResult Explore()

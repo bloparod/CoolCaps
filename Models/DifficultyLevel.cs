@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using CoolCaptions.Models.Common;
 
 namespace CoolCaptions.Models
